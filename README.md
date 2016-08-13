@@ -1,7 +1,13 @@
 # oddcode
-Odd bits and pieces that I've written for odd jobs
+Odd bits and pieces that I've written for odd jobs, or found useful and liberally copypasta'd it :)
 
+* Get-PendingReboot - PSH Function to check server if a pending reboot condition exists
+* NewMachine_InstallChrome - Downloads Chrome installer using BITSTransfer and installs it
 * Send-Pushbullet - Pushbullet notification for uTorrent
+* SortDropboxCameraUploads - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
+* wmi_poll_servers - Poll servers via WMI and extract key information into CSV/Excel
+
+# Something resembling instructions...
 
 ## Send-Pushbullet
 
