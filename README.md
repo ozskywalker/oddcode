@@ -1,6 +1,8 @@
 # oddcode
 Odd bits and pieces that I've written for odd jobs, or found useful and liberally copypasta'd it :)
 
+* exceltricks_formatToGB.txt - Excel Trick for formatting a given number into MB/TB/GB/PB
+* droplet_get_ip - Get IP Address of a DigitalOcean Droplet
 * Get-PendingReboot - PSH Function to check server if a pending reboot condition exists
 * NewMachine_InstallChrome - Downloads Chrome installer using BITSTransfer and installs it
 * Send-Pushbullet - Pushbullet notification for uTorrent
