@@ -1,6 +1,7 @@
 # oddcode
 Odd bits and pieces that I've written for odd jobs, or found useful and liberally copypasta'd it :)
 
+* Update-Route53.ps1 - Powershell script to run at time of EC2 start, will update (or create) CNAME record based on instance's current public host name
 * EnableDisable-FileSecurity.ps1 - Powershell byte-sized one-liners for disabling then re-enabling that pesky "Open File - Security Warning" dialog when trying to execute an installer (grumble..)
 * exceltricks_formatToGB.txt - Excel Trick for formatting a given number into MB/TB/GB/PB
 * droplet_get_ip - Get IP Address of a DigitalOcean Droplet
