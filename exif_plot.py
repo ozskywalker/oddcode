@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 #
 # To get started:
-#   pip3 install gmplot pillow
+#   pip3 install requests gmplot pillow
 #   python3 exif_plot.py /path/to/dir
 #   -or-
-#   pip3 install gmplot pillow
+#   pip3 install requests gmplot pillow
 #   python3 exif_plot.py /path/to/jpg
 #
 from collections import OrderedDict
