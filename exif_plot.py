@@ -150,7 +150,7 @@ if __name__ == "__main__":
 				exif_data = get_exif_data(image)
 				gps_info = clean_gps_info(exif_data)
 				gmap.marker(gps_info["Latitude"], gps_info["Longitude"])
-			except KeyError:
+			except:
 				ffail += 1
 				pass
 			#latitudes.append(gps_info["Latitude"])
