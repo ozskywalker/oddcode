@@ -10,6 +10,7 @@ Odd bits and pieces that I've written for odd jobs, or found useful and liberall
 * Send-Pushbullet - Pushbullet notification for uTorrent
 * SortDropboxCameraUploads - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * wmi_poll_servers - Poll servers via WMI and extract key information into CSV/Excel
+* exif_plot.py - Extracts GPS Info via EXIF from single file or whole directory and plots on Google Maps
 
 # Something resembling instructions...
 
