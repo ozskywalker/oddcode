@@ -1,6 +1,10 @@
 #PowerShell implementation based on c# example found here:
 #https://gist.github.com/j3tm0t0/2024833
 
+# TODO: switch from Access/Secret key to using temporary security credentials via STSRole
+# ie. $role = Use-STSRole -RoleArn arn:aws:iam::123456789012:role/MySampleRole -RoleSessionName RoleSession1 -StoredCredentials IAM-user-name
+# then $role.Credentials
+
 Import-Module AWSPowershell
 
 Function Create-AwsRoute53Record
