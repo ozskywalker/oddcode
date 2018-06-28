@@ -4,6 +4,7 @@ Odd bits and pieces that I've written for odd jobs, or found useful and liberall
 * PowerCLI-VMware-FindVMsbyUUID.ps1 - One-liner powershell script to find VMs by UUID
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
 * CV-RESTAPI-QOperationExecute.ps1 - Powershell script to perform example QOperation Execute command for Commvault
+* CV-RESTAPI-QOperationExecute-DisableAllJobActivity.ps1 - Powershell script to submit into XML message bus
 * CV-RESTAPI-DumpEdgeDriveContentsToHTML.ps1 - Powershell script to dump the contents for a given Commvault Edge Drive path out to HTML
 * docker_update.sh - Update all docker images on local workstation
 * ETL_MSSQL.py - Rudimentary ETL load left-to-right with pyodbc & MS-SQL
