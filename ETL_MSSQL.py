@@ -19,7 +19,7 @@ import pyodbc
 # Validate script:
 
 # import pyodbc
-# conn = pyodbc.connect('DRIVER=FreeTDS;SERVER=172.19.157.209\COMMVAULT;DATABASE=CommServ;UID=change_me;PWD=change_me;TDS_Version=8.0;')
+# conn = pyodbc.connect('DRIVER=FreeTDS;SERVER=hostname\instance;DATABASE=CommServ;UID=change_me;PWD=change_me;TDS_Version=8.0;')
 # cursor = conn.cursor()
 # for row in cursor.execute('select 6 * 7 as [Result];'):
 #     print(row.Result)
