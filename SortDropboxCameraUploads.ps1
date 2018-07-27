@@ -8,12 +8,12 @@ If ($IsWindows -eq $True) {
     $DropboxRoot = "E:\Dropbox"
     $DropboxCameraPath = $DropboxRoot + "\Camera Uploads\"
     $DropboxPhotos = $DropboxRoot + "\Photos\"
-} elseif ($IsOSX -eq $True) {
+} elseif ($IsMacOS -eq $True) {
     $DropboxRoot = "/Users/sky/Dropbox"
     $DropboxCameraPath = $DropboxRoot + "/Camera Uploads/"
     $DropboxPhotos = $DropboxRoot + "/Photos/"
 } else {
-    Write-Host "ERROR: Platform not Windows or OSX!"
+    Write-Host "ERROR: Platform not Windows or macOS!"
     Exit
 }
 
@@ -67,10 +67,10 @@ Foreach ($Pic in $Pictures){
             Try {
                 If ($IsWindows -eq $True) {
                     Move-Item "$Pic" -Destination "$DropboxPhotos$YearDirectory\$MonthDirectory/"
-                } elseif ($IsOSX -eq $True) {
+                } elseif ($IsMacOS -eq $True) {
                     Move-Item "$Pic" -Destination "$DropboxPhotos$YearDirectory/$MonthDirectory/"
                 } else {
-                    Write-Host "ERROR: Platform not Windows or OSX! (Should not fail here either!)"
+                    Write-Host "ERROR: Platform not Windows or macOS! (Should not fail here either!)"
                     Exit
                 }
                 # Verify variables with below:
