@@ -1,6 +1,7 @@
 # oddcode
 Odd bits and pieces that I've written for odd jobs, or found useful and liberally copypasta'd it :)
 
+* parseTSM.py - scrapes backup completion times from TSM mmbackup log entries
 * PowerCLI-VMware-FindVMsbyUUID.ps1 - One-liner powershell script to find VMs by UUID
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
 * CV-RESTAPI-QOperationExecute.ps1 - Powershell script to perform example QOperation Execute command for Commvault
