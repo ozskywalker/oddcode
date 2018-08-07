@@ -1,6 +1,7 @@
 # oddcode
 Odd bits and pieces that I've written for odd jobs, or found useful and liberally copypasta'd it :)
 
+* python_logging_block.py - Boilerplate Python 3 logging block
 * parseTSM.py - scrapes backup completion times from TSM mmbackup log entries
 * PowerCLI-VMware-FindVMsbyUUID.ps1 - One-liner powershell script to find VMs by UUID
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
