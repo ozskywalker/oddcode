@@ -25,6 +25,7 @@ Use how you wish, at your own risk.
 * parseTSM.py - scrapes backup completion times from TSM mmbackup log entries
 * PowerCLI-VMware-FindVMsbyUUID.ps1 - One-liner powershell script to find VMs by UUID
 * python_logging_block.py - Boilerplate Python 3 logging block
+* Remove-Notepad.ps1 - Remove Notepad++ across a fleet of machines
 * Send-Pushbullet.ps1 - Pushbullet notification for uTorrent
 * SortDropboxCameraUploads.ps1 - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
