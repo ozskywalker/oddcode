@@ -32,6 +32,7 @@ Use how you wish, at your own risk.
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
 * Update-Route53.ps1 - Powershell script to run at time of EC2 start, will update (or create) CNAME record based on instance's current public host name
 * veeam_cbtbug_fix.ps1 - workaround script for Veeam KB 2090639
+* WhosLoggedIn.ps1 - pull list of logged on users on the local machine
 * wmi_poll_servers.ps1 - Poll servers via WMI and extract key information into CSV/Excel
 
 # Script-specific instructions...
