@@ -3,6 +3,7 @@ Odd bits and pieces written or collected over the years.
 
 Use how you wish, at your own risk.
 
+* facebook-messenger-archive-everything.md - Archive all your Facebook Messenger chats, clean that right up
 * CV-RESTAPI-DumpEdgeDriveContentsToHTML.ps1 - Powershell script to dump the contents for a given Commvault Edge Drive path out to HTML
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
 * CV-RESTAPI-QOperationExecute-DisableAllJobActivity.ps1 - Powershell script to submit into XML message bus
