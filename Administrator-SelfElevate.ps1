@@ -1,3 +1,5 @@
+# Credit to https://www.blogabout.cloud/2020/05/1460/
+#
 # Get the ID and security principal of the current user account
 $myWindowsID=[System.Security.Principal.WindowsIdentity]::GetCurrent()
 $myWindowsPrincipal=new-object System.Security.Principal.WindowsPrincipal($myWindowsID)
