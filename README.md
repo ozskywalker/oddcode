@@ -4,6 +4,7 @@ Odd bits and pieces written or collected over the years.
 Use how you wish, at your own risk.
 
 * Administrator-SelfElevate.ps1 - Make your PowerShell scripts self elevate to run as an Administrator
+* Convert-DsRegCmd.ps1 - Take DSREGCMD /status output and turn into a PSObject.  Very handy stub for a variety of scripting tasks.
 * facebook-messenger-archive-everything.md - Archive all your Facebook Messenger chats, clean that right up
 * CV-RESTAPI-DumpEdgeDriveContentsToHTML.ps1 - Powershell script to dump the contents for a given Commvault Edge Drive path out to HTML
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
