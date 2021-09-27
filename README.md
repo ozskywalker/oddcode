@@ -15,6 +15,7 @@ Use how you wish, at your own risk.
 * docker_update.sh - Update all docker images on local workstation (macOS-Linux/Bash)
 * droplet_get_ip.py - Get IP Address of a DigitalOcean Droplet
 * EnableDisable-FileSecurity.ps1 - Powershell byte-sized one-liners for disabling then re-enabling that pesky "Open File - Security Warning" dialog when trying to execute an installer (grumble..)
+* Enable-WindowsSandbox-OnHomeEdition.ps1 - Enable Windows Sandbox on Windows 10 & 11
 * lease_check.py - quick check on value of a car lease (US)
 * ETL_MSSQL.py - Rudimentary ETL load left-to-right with pyodbc & MS-SQL
 * exceltricks_formatToGB.txt - Excel Trick for formatting a given number into MB/TB/GB/PB

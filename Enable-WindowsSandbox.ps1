@@ -1,0 +1,1 @@
+$( Get-ChildItem C:\Windows\servicing\Packages\*Containers*.mum |% { dism /online /norestart /add-package:"$_" } | Out-Host;!$err) -and $( dism /online /enable-feature /featurename:Containers-DisposableClientVM /LimitAccess /ALL | Out-Host;!$err)
