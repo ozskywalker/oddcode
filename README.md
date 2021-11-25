@@ -11,6 +11,7 @@ Use how you wish, at your own risk.
 * CV-RESTAPI-ExecuteWorkflowAsGETCall.ps1 - Powershell script to call Commvault workflow
 * CV-RESTAPI-QOperationExecute-DisableAllJobActivity.ps1 - Powershell script to submit into XML message bus
 * CV-RESTAPI-QOperationExecute.ps1 - Powershell script to perform example QOperation Execute command for Commvault
+* DRMM-CheckRefreshRate.ps1 - Datto RMM monitor component - checks that the refresh rate across all screens doesn't fall below a minimum value (defaults to 59 (=59.00 Hz))
 * docker_update.ps1 - Update all docker images on local workstation (Windows/PowerShell)
 * docker_update.sh - Update all docker images on local workstation (macOS-Linux/Bash)
 * droplet_get_ip.py - Get IP Address of a DigitalOcean Droplet
