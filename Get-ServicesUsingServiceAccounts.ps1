@@ -1,0 +1,1 @@
+Get-CimInstance -ClassName CIM_Service | Select Name, StartMode, StartName | Where { ($_.StartName).Length -gt 0 } | Where { $_.StartMode -eq "Auto" } | Where { $_.StartName -NotLike '*Local*' } | Where { $_.StartName -NotLike '*NetworkService*' }

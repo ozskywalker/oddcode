@@ -29,6 +29,7 @@ Use how you wish, at your own risk.
 * Get-NetworkStatistics.ps1 - For troubleshooting script - get network stats
 * Get-PendingReboot.ps1 - PSH Function to check server if a pending reboot condition exists
 * Get-UserSecurityGroups.ps1 - Get security groups for a given user
+* Get-ServicesUsingServiceAccounts.ps1 - one-liner to show all services on a machine using something other than SYSTEM/LocalService/NetworkService
 * Get-WindowsUpdates.ps1 - Get a list of Windows Updates and the status of that individual patch (& whether it was installed/uninstalled)
 * NewMachine_InstallChrome.ps1 - Downloads Chrome installer using BITSTransfer and installs it
 * parseTSM.py - scrapes backup completion times from TSM mmbackup log entries
