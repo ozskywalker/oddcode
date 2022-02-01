@@ -1,5 +1,5 @@
 #!/bin/sh
-COUNT=`diskutil list | grep ":" |grep -v "/dev/" | grep -v "#:" | grep -v "EFI" | grep -v "APFS" | grep -v "GUID_partition_scheme" | wc -l`
+COUNT=`diskutil list | grep ":" |grep -v "/dev/" | grep -v "#:" | grep -v "EFI" | grep -v "APFS" | grep -v "Microsoft" | grep -v "GUID_partition_scheme" | wc -l`
 
 if [ "$COUNT" -gt 0 ]; then
     RESULT="Found 1 or more"
