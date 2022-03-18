@@ -14,6 +14,7 @@ Use how you wish, at your own risk.
 * CV-RESTAPI-QOperationExecute.ps1 - Powershell script to perform example QOperation Execute command for Commvault
 * DRMM-CheckRefreshRate.ps1 - Datto RMM monitor component - checks that the refresh rate across all screens doesn't fall below a minimum value (defaults to 59 (=59.00 Hz))
 * DRMM-Testrig-Monitor-ForceStatus.ps1 - Datto RMM monitor component - forces a specific status/message useful for testing out monitoring and related processes (response components, email alerts, etc.)
+* DRMM-PopulateUDFwithDNSServers.ps1 - Datoo RMM script - populates a UDF with the DNS servers addresses on a Windows machine (string joined with comma)
 * DRMM-macOS-CheckForNonAPFSvols.sh - Datto RMM monitor component - looks for non-APFS vols by calling diskutil
 * docker_update.ps1 - Update all docker images on local workstation (Windows/PowerShell)
 * docker_update.sh - Update all docker images on local workstation (macOS-Linux/Bash)
