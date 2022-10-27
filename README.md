@@ -4,6 +4,7 @@ Odd bits and pieces written or collected over the years.
 Use how you wish, at your own risk.
 
 * Administrator-SelfElevate.ps1 - Make your PowerShell scripts self elevate to run as an Administrator
+* check-linux-updates-and-push-to-ntfy.sh - Checks a Ubuntu/Debian Linux server for package updates and notifies via Ntfy.sh
 * Convert-DsRegCmd.ps1 - Take DSREGCMD /status output and turn into a PSObject.  Very handy stub for a variety of scripting tasks.
 * facebook-messenger-archive-everything.md - Archive all your Facebook Messenger chats, clean that right up
 * Force-TLS12forPowershell.ps1 - stub to force TLS12 or better as the default for Powershell
