@@ -48,6 +48,7 @@ Use how you wish, at your own risk.
 * SortDropboxCameraUploads.ps1 - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
 * Update-Route53.ps1 - Powershell script to run at time of EC2 start, will update (or create) CNAME record based on instance's current public host name
+* validate_tls_version.sh - Bash script to validate if a HTTPS server will accept a specific TLS version.  Uses cURL.
 * veeam_cbtbug_fix.ps1 - workaround script for Veeam KB 2090639
 * vss_mount_and_work.ps1 - quick 'n dirty powershell shim to create and mount a VSS snapshot, do work against the snapshot, then unmount & delete snapshot afterwards.
 * WhosLoggedIn.ps1 - pull list of logged on users on the local machine
