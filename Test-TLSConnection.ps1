@@ -12,12 +12,12 @@
     The port number to connect to (default is 445).
 
 .PARAMETER protocols
-    The list of TLS protocols to test (default is Tls, Tls11, Tls12, Tls13).
+    The list of TLS protocols to test (default is Tls12, Tls11. Tls13 is optional.).
 
 .EXAMPLE
-    .\Test-TLSConnection.ps1 -Server example.com -Port 3000 -Protocols Tls12,Tls13
+    .\Test-TLSConnection.ps1 -Server example.com -Port 443 -Protocols Tls12,Tls13
 
-    Tests TLS 1.2 and TLS 1.3 protocols on example.com at port 3000.
+    Tests TLS 1.2 and TLS 1.3 protocols on example.com at port 443.
 
 .EXAMPLE
     .\Test-TLSConnection.ps1 -Server 192.168.1.1
@@ -29,7 +29,7 @@
 Param(
     [string]$Server,
     [int]$Port = 443,
-    [Net.SecurityProtocolType[]]$Protocols = @('Tls13','Tls12','Tls11')
+    [Net.SecurityProtocolType[]]$Protocols = @('Tls12','Tls11')
 )
 
 # Initialize counters
@@ -43,7 +43,7 @@ function Show-Usage {
     Write-Host "Parameters:"
     Write-Host "  -Server   The hostname or IP address of the server to test."
     Write-Host "  -Port       The port number to connect to (default is 443)."
-    Write-Host "  -Protocols  The list of TLS protocols to test (default is Tls,Tls11,Tls12,Tls13)."
+    Write-Host "  -Protocols  The list of TLS protocols to test (default is Tls12,Tls11. Tls13 is optional.)."
     Write-Host
     Write-Host "Examples:"
     Write-Host "  .\Test-TLSConnection.ps1 -Server example.com -Port 443 -Protocols Tls12,Tls13"
@@ -64,7 +64,7 @@ if ($Port -lt 1 -or $Port -gt 65535) {
 }
 
 # Validate protocols
-$validProtocols = @('Ssl3','Tls','Tls11','Tls12','Tls13')
+$validProtocols = @('Tls13','Tls12','Tls11')
 foreach ($protocol in $Protocols) {
     if ($validProtocols -notcontains $protocol.ToString()) {
         Write-Host "Error: Invalid protocol '$protocol'. Valid protocols are: $($validProtocols -join ', ')"
@@ -86,7 +86,7 @@ function Test-TlsVersion {
     )
     try {
         # Set the desired TLS version
-        [Net.ServicePointManager]::SecurityProtocol = $protocol
+        [Net.ServicePointManager]::SecurityProtocol = $Protocol
 
         # Create a TCP client and connect to the server
         $tcpClient = New-Object System.Net.Sockets.TcpClient
@@ -131,9 +131,17 @@ function Test-TlsVersion {
     }
     catch {
         $global:failureCount++
-        Write-Host "[x] $($protocol) -> Failed: connection / TLS handshake failed: $($_.Exception.Message)"
+        Write-Host "[x] $($Protocol) -> Failed: connection / TLS handshake failed."
+        Write-Host "    Exception Type    : $($_.Exception.GetType().FullName)"
+        Write-Host "    Exception Message : $($_.Exception.Message)"
+        if ($_.Exception.InnerException) {
+            Write-Host "    Inner Exception Type    : $($_.Exception.InnerException.GetType().FullName)"
+            Write-Host "    Inner Exception Message : $($_.Exception.InnerException.Message)"
+        }
+        Write-Host
     }
 }
+
 
 # Loop through the list of protocols to test
 foreach ($protocol in $Protocols) {
