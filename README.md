@@ -37,6 +37,7 @@ Use how you wish, at your own risk.
 * Get-UserSecurityGroups.ps1 - Get security groups for a given user
 * Get-ServicesUsingServiceAccounts.ps1 - one-liner to show all services on a machine using something other than SYSTEM/LocalService/NetworkService
 * Get-WindowsUpdates.ps1 - Get a list of Windows Updates and the status of that individual patch (& whether it was installed/uninstalled)
+* Generate_MSSQL_Activity.ps1 - Generates random activity in an AdventureWorks2022 database (MS SQL Server 2022) for LAB environments
 * NewMachine_InstallChrome.ps1 - Downloads Chrome installer using BITSTransfer and installs it
 * parseTSM.py - scrapes backup completion times from TSM mmbackup log entries
 * PowerCLI-VMware-FindVMsbyUUID.ps1 - One-liner powershell script to find VMs by UUID
