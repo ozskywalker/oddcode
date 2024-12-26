@@ -82,11 +82,11 @@ function Test-TlsVersion {
     param (
         [string]$Server,
         [int]$Port,
-        [Net.SecurityProtocolType]$Protocol
+        [System.Net.SecurityProtocolType]$Protocol
     )
     try {
         # Set the desired TLS version
-        [Net.ServicePointManager]::SecurityProtocol = $Protocol
+        [System.Net.ServicePointManager]::SecurityProtocol = $Protocol
 
         # Create a TCP client and connect to the server
         $tcpClient = New-Object System.Net.Sockets.TcpClient
