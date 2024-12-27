@@ -20,25 +20,23 @@ Set-StrictMode -Version Latest
 function Get-ValidNetAdapters {
     # Retrieves all active, physical (non-Bluetooth, non-Loopback) adapters, 
     # excluding Tailscale, excluding vEthernet with no IPv4/IPv6 gateway.
-    Get-NetAdapter -Physical |
-        Where-Object {
-            $_.Status -eq 'Up' -and
-            $_.InterfaceDescription -notmatch 'Bluetooth' -and
-            $_.InterfaceDescription -notmatch 'Loopback' -and
-            $_.InterfaceDescription -notmatch 'Tailscale' -and
-            (
-                # If it's a vEthernet adapter, only include it if it has at least
-                # one default gateway (IPv4 or IPv6). Otherwise, keep it.
-                if ($_.InterfaceDescription -match 'vEthernet') {
-                    $netIPConf = Get-NetIPConfiguration -InterfaceAlias $_.Name
-                    ($netIPConf.IPv4DefaultGateway -and $netIPConf.IPv4DefaultGateway.Count -gt 0) -or
-                    ($netIPConf.IPv6DefaultGateway -and $netIPConf.IPv6DefaultGateway.Count -gt 0)
-                }
-                else {
-                    $true
-                }
-            )
+    Get-NetAdapter -Physical | Where-Object {
+        $_.Status -eq 'Up' -and
+        $_.InterfaceDescription -notmatch 'Bluetooth' -and
+        $_.InterfaceDescription -notmatch 'Loopback' -and
+        $_.InterfaceDescription -notmatch 'Tailscale'
+    } | ForEach-Object {
+        if ($_.InterfaceDescription -match 'vEthernet') {
+            $netIPConf = Get-NetIPConfiguration -InterfaceAlias $_.Name
+            if (($netIPConf.IPv4DefaultGateway -and $netIPConf.IPv4DefaultGateway.Count -gt 0) -or
+                ($netIPConf.IPv6DefaultGateway -and $netIPConf.IPv6DefaultGateway.Count -gt 0)) {
+                $_
+            }
         }
+        else {
+            $_
+        }
+    }
 }
 
 function Set-OpenDNS {
@@ -60,7 +58,7 @@ function Disable-IPv6DNS {
         $alias = $adapter.Name
         Write-Host "  Clearing IPv6 DNS for '$alias'"
         # Set IPv6 DNS servers to empty array to disable
-        Set-DnsClientServerAddress -InterfaceAlias $alias -AddressFamily IPv6 -ServerAddresses @() -ErrorAction SilentlyContinue
+        Set-DnsClientServerAddress -InterfaceAlias $alias -ServerAddresses @() -ErrorAction SilentlyContinue
     }
 }
 
