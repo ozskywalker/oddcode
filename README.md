@@ -31,6 +31,7 @@ Use how you wish, at your own risk.
 * exif_plot.py - Extracts GPS Info via EXIF from single file or whole directory and plots on Google Maps
 * ffmpeg-ConvertAC3toAAC.ps1 - Converts all AC3 files in a directory, to AAC files, using ffmpeg
 * FindVMsbyUUID.ps1 - Find VMware VMs by UUID (requires PowerCLI)
+* Get-ActiveSpeaker.ps1 - returns active speaker on a Windows 10/11 machine
 * Get-FolderSize.ps1 - Scan folder recursively and spit out CSV file with file & sizes
 * Get-NetworkStatistics.ps1 - For troubleshooting script - get network stats
 * Get-PendingReboot.ps1 - PSH Function to check server if a pending reboot condition exists
