@@ -49,6 +49,7 @@ Use how you wish, at your own risk.
 * Read-IniFile.psm1 - Function to read INI files in as a PowerShell Object
 * Remove-Notepad.ps1 - Remove Notepad++ across a fleet of machines
 * ReregisterApp.ps1 - Re-registers applications on Windows (handy when Calculator starts freezing like crazy)
+* Set-NTPtoCloudFlare.ps1 - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * Send-Pushbullet.ps1 - Pushbullet notification for uTorrent
 * SortDropboxCameraUploads.ps1 - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
