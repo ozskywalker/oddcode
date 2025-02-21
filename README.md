@@ -54,6 +54,7 @@ Use how you wish, at your own risk.
 * SortDropboxCameraUploads.ps1 - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
 * Update-Route53.ps1 - Powershell script to run at time of EC2 start, will update (or create) CNAME record based on instance's current public host name
+* Update-WSLDistros.ps1 - Powershell script to update all WSL distros via RMM script. Many thanks to [SvenGroot's WslManagementPS script](https://github.com/SvenGroot/WslManagementPS), I've simply just wrapped their good work.
 * Test-TLSConnection.ps1 - Powershell script to attempt TLS connections with specific TLS versions. Some warning - Windows registry keys may force the client to upgrade, and .NET won't tell us who forced the upgrade (Client or Server).
 * validate_tls_version.sh - Bash script to validate if a HTTPS server will accept a specific TLS version.  Uses cURL.
 * veeam_cbtbug_fix.ps1 - workaround script for Veeam KB 2090639
