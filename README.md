@@ -51,6 +51,7 @@ Use how you wish, at your own risk.
 * ReregisterApp.ps1 - Re-registers applications on Windows (handy when Calculator starts freezing like crazy)
 * Set-NTPtoCloudFlare.ps1 - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * Send-Pushbullet.ps1 - Pushbullet notification for uTorrent
+* Show-DiskUsage.ps1 - du -h for Windows
 * SortDropboxCameraUploads.ps1 - Takes Dropbox Camera Uploads folder and sorts everything by year/month into Photos folder
 * lambda_autoShutdown.py - AWS Lambda function to auto-shutdown instances, unless it has a specified ignoreTag
 * Update-Route53.ps1 - Powershell script to run at time of EC2 start, will update (or create) CNAME record based on instance's current public host name
