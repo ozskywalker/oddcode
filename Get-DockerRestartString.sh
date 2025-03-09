@@ -22,7 +22,7 @@ fi
 
 # Generate docker run command from container inspection
 docker inspect "$CONTAINER" --format 'docker run
-{{- range $e := .Config.Env }}{{if not (hasPrefix $e "PATH=")}} -e {{$e}}{{end}}{{end}}
+{{- range $e := .Config.Env }}{{ $var := index (split $e "=") 0 }}{{ if ne $var "PATH" }} -e {{$e}}{{end}}{{end}} \
 {{- range $v := .HostConfig.Binds }} -v {{$v}}{{end}}
 {{- range $p, $conf := .HostConfig.PortBindings }}{{ with $conf }}{{ range . }} -p {{.HostPort}}:{{index (split $p "/") 0}}{{end}}{{end}}{{end}}
 {{- with .HostConfig.RestartPolicy }} --restart={{.Name}}{{if .MaximumRetryCount}}:{{.MaximumRetryCount}}{{end}}{{end}}
