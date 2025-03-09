@@ -30,9 +30,9 @@ docker inspect "$CONTAINER" --format 'docker run
 {{- if .HostConfig.Privileged }} --privileged{{end}}
 {{- if .Config.User }} -u {{.Config.User}}{{end}}
 {{- if .Config.WorkingDir }} -w {{.Config.WorkingDir}}{{end}}
-{{- if (gt .HostConfig.Memory 0) }} --memory={{.HostConfig.Memory}}b{{end}}
-{{- if (gt .HostConfig.MemoryReservation 0) }} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}}
-{{- if (gt .HostConfig.CpuShares 0) }} --cpu-shares={{.HostConfig.CpuShares}}{{end}}
+{{- if .HostConfig.Memory }}{{if ne .HostConfig.Memory 0.0}} --memory={{.HostConfig.Memory}}b{{end}}{{end}} \
+{{- if .HostConfig.MemoryReservation }}{{if ne .HostConfig.MemoryReservation 0.0}} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}}{{end}} \
+{{- if .HostConfig.CPUShares }}{{if ne .HostConfig.CPUShares 0.0}} --cpu-shares={{.HostConfig.CPUShares}}{{end}}{{end}} \
 {{- if ne .Config.Hostname (slice .Id 0 12) }} -h {{.Config.Hostname}}{{end}}
 {{- range .HostConfig.ExtraHosts }} --add-host={{.}}{{end}}
 {{- if .Name }} --name={{slice .Name 1}}{{end}}
