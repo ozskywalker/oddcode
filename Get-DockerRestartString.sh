@@ -28,9 +28,9 @@ docker inspect "$CONTAINER" --format 'docker run \
 {{- if .HostConfig.Privileged }} --privileged{{end}} \
 {{- if .Config.User }} -u {{.Config.User}}{{end}} \
 {{- if .Config.WorkingDir }} -w {{.Config.WorkingDir}}{{end}} \
-{{- if .HostConfig.Memory }} --memory={{.HostConfig.Memory}}b{{end}} \
-{{- if .HostConfig.MemoryReservation }} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}} \
-{{- if .HostConfig.CPUShares }} --cpu-shares={{.HostConfig.CPUShares}}{{end}} \
+{{- if (gt .HostConfig.Memory 0) }} --memory={{.HostConfig.Memory}}b{{end}} \
+{{- if (gt .HostConfig.MemoryReservation 0) }} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}} \
+{{- if (gt .HostConfig.CPUShares 0) }} --cpu-shares={{.HostConfig.CPUShares}}{{end}} \
 {{- if ne .Config.Hostname (slice .Id 0 12) }} -h {{.Config.Hostname}}{{end}} \
 {{- range .HostConfig.ExtraHosts }} --add-host={{.}}{{end}} \
 {{- if .Name }} --name={{slice .Name 1}}{{end}} \
