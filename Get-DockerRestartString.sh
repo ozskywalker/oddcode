@@ -21,7 +21,7 @@ if ! docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER}$" && ! docker p
 fi
 
 # Generate docker run command from container inspection
-docker inspect "$CONTAINER" --format 'docker run
+docker inspect "$CONTAINER" --format 'docker run -d 
 {{- range $e := .Config.Env }}{{ $var := index (split $e "=") 0 }}{{ if ne $var "PATH" }} -e {{$e}}{{end}}{{end}}
 {{- range $v := .HostConfig.Binds }} -v {{$v}}{{end}}
 {{- range $p, $conf := .HostConfig.PortBindings }}{{ with $conf }}{{ range . }} -p {{.HostPort}}:{{index (split $p "/") 0}}{{end}}{{end}}{{end}}
