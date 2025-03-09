@@ -22,7 +22,7 @@ fi
 
 # Generate docker run command from container inspection
 docker inspect "$CONTAINER" --format 'docker run
-{{- range $e := .Config.Env }}{{ $var := index (split $e "=") 0 }}{{ if ne $var "PATH" }} -e {{$e}}{{end}}{{end}} \
+{{- range $e := .Config.Env }}{{ $var := index (split $e "=") 0 }}{{ if ne $var "PATH" }} -e {{$e}}{{end}}{{end}}
 {{- range $v := .HostConfig.Binds }} -v {{$v}}{{end}}
 {{- range $p, $conf := .HostConfig.PortBindings }}{{ with $conf }}{{ range . }} -p {{.HostPort}}:{{index (split $p "/") 0}}{{end}}{{end}}{{end}}
 {{- with .HostConfig.RestartPolicy }} --restart={{.Name}}{{if .MaximumRetryCount}}:{{.MaximumRetryCount}}{{end}}{{end}}
@@ -30,15 +30,15 @@ docker inspect "$CONTAINER" --format 'docker run
 {{- if .HostConfig.Privileged }} --privileged{{end}}
 {{- if .Config.User }} -u {{.Config.User}}{{end}}
 {{- if .Config.WorkingDir }} -w {{.Config.WorkingDir}}{{end}}
-{{- if .HostConfig.Memory }}{{if ne .HostConfig.Memory 0.0}} --memory={{.HostConfig.Memory}}b{{end}}{{end}} \
-{{- if .HostConfig.MemoryReservation }}{{if ne .HostConfig.MemoryReservation 0.0}} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}}{{end}} \
-{{- if .HostConfig.CPUShares }}{{if ne .HostConfig.CPUShares 0.0}} --cpu-shares={{.HostConfig.CPUShares}}{{end}}{{end}} \
+{{- if .HostConfig.Memory }}{{if ne .HostConfig.Memory 0.0}} --memory={{.HostConfig.Memory}}b{{end}}{{end}}
+{{- if .HostConfig.MemoryReservation }}{{if ne .HostConfig.MemoryReservation 0.0}} --memory-reservation={{.HostConfig.MemoryReservation}}b{{end}}{{end}}
+{{- if .HostConfig.CPUShares }}{{if ne .HostConfig.CPUShares 0.0}} --cpu-shares={{.HostConfig.CPUShares}}{{end}}{{end}}
 {{- if ne .Config.Hostname (slice .Id 0 12) }} -h {{.Config.Hostname}}{{end}}
 {{- range .HostConfig.ExtraHosts }} --add-host={{.}}{{end}}
 {{- if .Name }} --name={{slice .Name 1}}{{end}}
 {{- range .HostConfig.Devices }} --device={{.PathOnHost}}:{{.PathInContainer}}{{if .CgroupPermissions}}:{{.CgroupPermissions}}{{end}}{{end}}
 {{- if .HostConfig.LogConfig.Type }} --log-driver={{.HostConfig.LogConfig.Type}}{{end}}
-{{- range $key, $value := .HostConfig.LogConfig.Config }} --log-opt {{$key}}={{$value}}{{end}}
+{{- range $key, $value := .HostConfig.LogConfig.Config }} --log-opt {{$key}}={{$value}}{{end}} \
 {{.Config.Image}}
 {{- if .Config.Entrypoint }}
 {{- range .Config.Entrypoint }} {{.}}{{end}}
