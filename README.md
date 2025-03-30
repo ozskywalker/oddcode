@@ -39,7 +39,7 @@ Use how you wish, at your own risk.
 * Get-ProcessByCPUUsage.ps1 - Get a sorted list of processes using more than 5% CPU
 * Get-UserSecurityGroups.ps1 - Get security groups for a given user
 * Get-SChannelCipherList.ps1 - Calls SChannel to determine what SSL & TLS ciphers are supported on Windows (compatible w/Server 2012 R2 & newer / PowerShell 4.0 & newer)
-* Get-OpenDNSEnforcementStatus.p1 / Set-OpenDNSEnforcement.ps1 - Scripts for RMM to monitor & enforce OpenDNS and avoid common bypasses.
+* Get-NextDNSEnforcementStatus.ps1 / Set-NextDNSEnforcement.ps1 - Scripts for RMM to monitor & enforce NextDNS and avoid common bypasses.
 * Get-ServicesUsingServiceAccounts.ps1 - one-liner to show all services on a machine using something other than SYSTEM/LocalService/NetworkService
 * Get-WindowsUpdates.ps1 - Get a list of Windows Updates and the status of that individual patch (& whether it was installed/uninstalled)
 * Generate_MSSQL_Activity.ps1 - Generates random activity in an AdventureWorks2022 database (MS SQL Server 2022) for LAB environments
