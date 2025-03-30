@@ -20,9 +20,9 @@
 Set-StrictMode -Version Latest
 
 # NextDNS configuration details
-$nextDnsIPv4 = @('45.90.28.95', '45.90.30.95')
-$nextDnsIPv6 = @('2a07:a8c0::33:bd86', '2a07:a8c1::33:bd86')
-$nextDnsId = '33bd86'
+$nextDnsIPv4 = @('xxx', 'yyy') # Replace with your NextDNS IPv4 addresses
+$nextDnsIPv6 = @('xxx', 'yyy') # Replace with your NextDNS IPv6 addresses
+$nextDnsId = 'xxx-yyy' # Replace with your NextDNS ID
 
 # Get the hostname and format it for DNS services
 function Get-FormattedHostname {

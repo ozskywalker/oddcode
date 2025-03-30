@@ -24,9 +24,9 @@
 Set-StrictMode -Version Latest
 
 # Specify allowed NextDNS servers
-$AllowedDNSv4 = @('45.90.28.95', '45.90.30.95')
-$AllowedDNSv6 = @('2a07:a8c0::33:bd86', '2a07:a8c1::33:bd86')
-$nextDnsId = '33bd86'
+$AllowedDNSv4 = @('xxx', 'yyy') # Replace with your NextDNS IPv4 servers
+$AllowedDNSv6 = @('xxx', 'yyy')  # Replace with your NextDNS IPv6 servers
+$nextDnsId = 'xxx-yyy' # Replace with your NextDNS ID
 
 # Initialize error code
 $ErrorCode = 0
