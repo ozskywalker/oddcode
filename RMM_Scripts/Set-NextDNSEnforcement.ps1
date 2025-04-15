@@ -124,7 +124,13 @@ function Set-IPv6DNS {
 function Set-DnsOverHttps {
     Write-Host "Configuring DNS-over-HTTPS (DoH)..."
     try {
-        # Remove any existing DoH servers
+        # Check if the command exists on this system
+        if (-not (Get-Command -Name 'Add-DnsClientDohServerAddress' -ErrorAction SilentlyContinue)) {
+            Write-Host "  DNS-over-HTTPS configuration not supported on this version of Windows."
+            return
+        }
+        
+        # First try to clear any existing DoH servers
         $dohServers = Get-DnsClientDohServerAddress -ErrorAction Stop
         if ($dohServers) {
             foreach ($doh in $dohServers) {
@@ -136,9 +142,18 @@ function Set-DnsOverHttps {
             Write-Host "  No existing DoH servers configured."
         }
         
-        # Add NextDNS DoH server
-        Write-Host "  Adding NextDNS DoH server: $nextDnsDoH"
-        Add-DnsClientDohServerAddress -ServerAddress $nextDnsDoH -ErrorAction Stop
+        # Apply DoH template to each NextDNS IPv4 address
+        foreach ($ipv4 in $nextDnsIPv4) {
+            Write-Host "  Adding DoH configuration for NextDNS IPv4 server: $ipv4 with template: $nextDnsDoH"
+            Add-DnsClientDohServerAddress -ServerAddress $ipv4 -DohTemplate $nextDnsDoH -ErrorAction Stop
+        }
+        
+        # Apply DoH template to each NextDNS IPv6 address
+        foreach ($ipv6 in $nextDnsIPv6) {
+            Write-Host "  Adding DoH configuration for NextDNS IPv6 server: $ipv6 with template: $nextDnsDoH"
+            Add-DnsClientDohServerAddress -ServerAddress $ipv6 -DohTemplate $nextDnsDoH -ErrorAction Stop
+        }
+        
         Write-Host "  DoH configuration successful."
     }
     catch {
