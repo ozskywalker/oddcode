@@ -256,28 +256,41 @@ function Test-DoHConfiguration {
             $expectedDoH = "https://dns.nextdns.io/$nextDnsId"
         }
         
+        $foundNextDNSIPs = $false
         $foundCorrectDoH = $false
+        
         foreach ($doh in $dohServers) {
             Write-Host " DoH Server: $($doh.ServerAddress)"
+            
+            # Check if this is a known NextDNS IP address
+            if (
+                $AllowedDNSv4 -contains $doh.ServerAddress -or 
+                $AllowedDNSv6 -contains $doh.ServerAddress
+            ) {
+                Write-Host "  NextDNS IP address detected as DoH server."
+                $foundNextDNSIPs = $true
+                continue
+            }
             
             # Check if this is our NextDNS DoH server (with or without hostname)
             if ($doh.ServerAddress -like "https://dns.nextdns.io/$nextDnsId*") {
                 $foundCorrectDoH = $true
             }
-            # If it's not our NextDNS DoH, it's an error
-            else {
+            # If it's not a NextDNS IP or NextDNS DoH URL, it's an error
+            elseif (-not $foundNextDNSIPs) {
                 Write-Host "  ERROR: Unauthorized DoH server found: $($doh.ServerAddress)"
                 $result = $true
             }
         }
         
-        if (-not $foundCorrectDoH) {
+        # If neither NextDNS IPs nor the expected DoH URL were found, that's an error
+        if (-not ($foundCorrectDoH -or $foundNextDNSIPs)) {
             Write-Host "  ERROR: NextDNS DoH server not configured."
             $result = $true
         }
     }
     catch {
-        Write-Host " DNS-over-HTTPS not supported on this OS version or command not found."
+        Write-Host " DNS-over-HTTPS not supported on this OS version or command not found: $($_.Exception.Message)"
         Write-Host " (Skipping DoH check.)"
     }
     
