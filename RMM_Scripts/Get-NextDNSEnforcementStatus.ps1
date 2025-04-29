@@ -55,6 +55,8 @@ function Get-ValidNetAdapters {
         $_.Status -eq 'Up' -and
         $_.InterfaceDescription -notmatch 'Bluetooth' -and
         $_.InterfaceDescription -notmatch 'Loopback' -and
+        $_.InterfaceDescription -notmatch 'VirtualBox' -and
+        $_.InterfaceDescription -notmatch 'WSL (Hyper-V firewall)' -and
         $_.InterfaceDescription -notmatch 'Tailscale'
     } | ForEach-Object {
         if ($_.InterfaceDescription -match 'vEthernet') {
