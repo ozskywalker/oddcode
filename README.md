@@ -50,7 +50,8 @@ Use & modify as you wish.
 * **[DRMM-macOS-disable-ipv6.sh](RMM_Scripts/DRMM-macOS-disable-ipv6.sh)** - Disables IPv6 on all interfaces on a given macOS endpoint
 * **[Get-NextDNSEnforcementStatus.ps1](RMM_Scripts/Get-NextDNSEnforcementStatus.ps1)** - Script for RMM to monitor NextDNS and avoid common bypasses
 * **[Set-NextDNSEnforcement.ps1](RMM_Scripts/Set-NextDNSEnforcement.ps1)** - Script for RMM to enforce NextDNS and avoid common bypasses
-* **[WhosLoggedIn.ps1](RMM_Scripts/WhosLoggedIn.ps1)** - Pull list of logged on users on the local machine
+* **[Set-DisableSleeponACPower.ps1](RMM_Scripts/Set-DisableSleeponACPower.ps1)** - Script for RMM to disable sleep on AC power and lid close, and disable Hibernation entirely (helps Bitlocker stay active)
+* **[Get-WhosLoggedIn.ps1](RMM_Scripts/Get-WhosLoggedIn.ps1)** - Pull list of logged on users on the local machine
 
 ## Cloud & DevOps
 
