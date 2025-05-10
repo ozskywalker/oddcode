@@ -43,6 +43,7 @@ Use & modify as you wish.
 
 ## RMM Scripts
 
+* **[Disable-MicrosoftCopilot.ps1](RMM_Scripts/Disable-MicrosoftCopilot.ps1)** - Disables Microsoft Copilot by removing the Appx package & changing the GPO reg key if it exists
 * **[DRMM-CheckRefreshRate.ps1](RMM_Scripts/DRMM-CheckRefreshRate.ps1)** - Monitor component - checks that the refresh rate across all screens doesn't fall below a minimum value
 * **[DRMM-Testrig-Monitor-ForceStatus.ps1](RMM_Scripts/DRMM-Testrig-Monitor-ForceStatus.ps1)** - Monitor component - forces a specific status/message for testing monitoring processes
 * **[DRMM-PopulateUDFwithDNSServers.ps1](RMM_Scripts/DRMM-PopulateUDFwithDNSServers.ps1)** - Script - populates a UDF with the DNS servers addresses on a Windows machine
