@@ -348,9 +348,9 @@ function Set-FirefoxDohSettings {
                     return
                 }
                 
-                foreach ($profile in $profiles) {
-                    $profileName = $profile.Name
-                    $prefsPath = Join-Path $profile.FullName "prefs.js"
+                foreach ($p in $profiles) {
+                    $profileName = $p.Name
+                    $prefsPath = Join-Path $p.FullName "prefs.js"
                     
                     if (Test-Path $prefsPath) {
                         Write-Host "  Configuring DoH for Firefox profile: $profileName"
