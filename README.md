@@ -38,7 +38,6 @@ Use & modify as you wish.
 * **[ReregisterApp.ps1](Windows_Systems_Administration/ReregisterApp.ps1)** - Re-registers applications on Windows (handy when Calculator starts freezing like crazy)
 * **[Show-DiskUsage.ps1](Windows_Systems_Administration/Show-DiskUsage.ps1)** - du -h for Windows
 * **[Update-WSLDistros.ps1](Windows_Systems_Administration/Update-WSLDistros.ps1)** - Powershell script to update all WSL distros via RMM script
-* **[Set-NTPtoCloudFlare.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[wmi_poll_servers.ps1](Windows_Systems_Administration/wmi_poll_servers.ps1)** - Poll servers via WMI and extract key information into CSV/Excel
 
 ## RMM Scripts
@@ -51,6 +50,8 @@ Use & modify as you wish.
 * **[DRMM-macOS-disable-ipv6.sh](RMM_Scripts/DRMM-macOS-disable-ipv6.sh)** - Disables IPv6 on all interfaces on a given macOS endpoint
 * **[Get-NextDNSEnforcementStatus.ps1](RMM_Scripts/Get-NextDNSEnforcementStatus.ps1)** - Script for RMM to monitor NextDNS and avoid common bypasses
 * **[Set-NextDNSEnforcement.ps1](RMM_Scripts/Set-NextDNSEnforcement.ps1)** - Script for RMM to enforce NextDNS and avoid common bypasses
+* **[Get-NTPtoCloudFlareStatus.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
+* **[Set-NTPtoCloudFlare.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[Set-DisableSleeponACPower.ps1](RMM_Scripts/Set-DisableSleeponACPower.ps1)** - Script for RMM to disable sleep on AC power and lid close, and disable Hibernation entirely (helps Bitlocker stay active)
 * **[Get-WhosLoggedIn.ps1](RMM_Scripts/Get-WhosLoggedIn.ps1)** - Pull list of logged on users on the local machine
 
@@ -64,6 +65,7 @@ Use & modify as you wish.
 * **[Update-Route53.ps1](Cloud_DevOps/Update-Route53.ps1)** - Runs at time of EC2 start to update/create CNAME record based on instance's public host name
 
 ## Commvault, TSM, Veeam
+note: these backup software scripts are significantly out-of-date and being retained only for archival purposes
 
 ### Commvault
 * **[CV-RESTAPI-DumpEdgeDriveContentsToHTML.ps1](Commvault_TSM_Veeam/Commvault/CV-RESTAPI-DumpEdgeDriveContentsToHTML.ps1)** - Script to dump the contents for a given Commvault Edge Drive path out to HTML
