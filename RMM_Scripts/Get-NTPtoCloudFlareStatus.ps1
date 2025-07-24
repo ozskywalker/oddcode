@@ -25,11 +25,7 @@ try {
         $currentPollInterval -eq 3600 -and 
         $currentEnabled -eq 1) {
         
-        Write-Host "SUCCESS: NTP is configured to use CloudFlare (time.cloudflare.com)" -ForegroundColor Green
-        Write-Host "  NTP Server: $currentNtpServer"
-        Write-Host "  Announce Flags: $currentAnnounceFlags"
-        Write-Host "  Poll Interval: $currentPollInterval seconds"
-        Write-Host "  NTP Client Enabled: $currentEnabled"
+        Write-Host "SUCCESS: NTP is configured to use CloudFlare (NTP Server: $currentNtpServer, Announce Flags: $currentAnnounceFlags, Poll Interval: $currentPollInterval seconds, NTP Client Enabled: $currentEnabled)" -ForegroundColor Green
         exit 0
     }
 
@@ -41,20 +37,12 @@ try {
     )
 
     if ($currentNtpServer -in $windowsDefaults) {
-        Write-Host "ERROR: NTP is set to Windows default server" -ForegroundColor Yellow
-        Write-Host "  Current NTP Server: $currentNtpServer"
-        Write-Host "  Announce Flags: $currentAnnounceFlags"
-        Write-Host "  Poll Interval: $currentPollInterval seconds"
-        Write-Host "  NTP Client Enabled: $currentEnabled"
+        Write-Host "ERROR: NTP is set to Windows default server (NTP Server: $currentNtpServer, Announce Flags: $currentAnnounceFlags, Poll Interval: $currentPollInterval seconds, NTP Client Enabled: $currentEnabled)" -ForegroundColor Yellow
         exit 1
     }
 
     # Any other NTP configuration
-    Write-Host "ERROR: NTP is set to a non-CloudFlare server" -ForegroundColor Red
-    Write-Host "  Current NTP Server: $currentNtpServer"
-    Write-Host "  Announce Flags: $currentAnnounceFlags"
-    Write-Host "  Poll Interval: $currentPollInterval seconds"
-    Write-Host "  NTP Client Enabled: $currentEnabled"
+    Write-Host "ERROR: NTP is set to a non-CloudFlare server (NTP Server: $currentNtpServer, Announce Flags: $currentAnnounceFlags, Poll Interval: $currentPollInterval seconds, NTP Client Enabled: $currentEnabled)" -ForegroundColor Red
     exit 2
 
 } catch {
