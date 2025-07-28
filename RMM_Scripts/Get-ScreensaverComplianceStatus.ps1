@@ -123,7 +123,7 @@ function Test-ScreensaverCompliance {
     Write-Host ""
     
     # Return appropriate error code
-    if ($Issues.Count -gt 0) {
+    if ($Issues) {
         return 1
     } else {
         return 0
