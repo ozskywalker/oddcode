@@ -30,14 +30,14 @@ function Write-Banner {
     $timeZone = try { (Get-TimeZone).Id } catch { "Unknown" }
     $osInfo = Get-CimInstance Win32_OperatingSystem -ErrorAction SilentlyContinue
     $osCaption = if ($osInfo) { $osInfo.Caption } else { "Unknown OS" }
-    $osVersion = if ($osInfo) { $osVersion.Version } else { "Unknown Version" }
+    $osVersion = if ($osInfo) { $osInfo.Version } else { "Unknown Version" }
 
     Write-Host "========================================"
     Write-Host " ScreenSaver Compliance Script Starting"
     Write-Host " Date/Time: $timeStamp"
     Write-Host " Hostname: $hostName"
     Write-Host " TimeZone: $timeZone"
-    Write-Host " OS: $osCaption"
+    Write-Host " OS: $osCaption ($osVersion)"
     Write-Host "========================================"
     Write-Host ""
 }
@@ -65,6 +65,10 @@ function Set-ScreensaverConfiguration {
         # 3. Enable password protection
         Write-Host " Setting ScreenSaverIsSecure to enabled ($EnableSecure)"
         Set-ItemProperty -Path $regPath -Name "ScreenSaverIsSecure" -Value $EnableSecure -Type String
+        
+        # 3b. Additional password protection setting (some systems require this)
+        Write-Host " Setting ScreenSaveUsePassword to enabled ($EnableSecure)"
+        Set-ItemProperty -Path $regPath -Name "ScreenSaveUsePassword" -Value $EnableSecure -Type String -ErrorAction SilentlyContinue
         
         # 4. Check if screensaver is currently set to "None" and set to Blank if needed
         $currentScreensaver = Get-ItemProperty -Path $regPath -Name "SCRNSAVE.EXE" -ErrorAction SilentlyContinue
@@ -104,6 +108,25 @@ function Set-ScreensaverConfiguration {
         } else {
             Write-Host " Existing screensaver detected: $($currentScreensaver.'SCRNSAVE.EXE')"
             Write-Host " Preserving current screensaver choice"
+        }
+        
+        # 5. Force system to refresh screensaver settings
+        Write-Host " Refreshing system screensaver settings..."
+        try {
+            # Update system parameters to force refresh
+            Add-Type -TypeDefinition @"
+                using System;
+                using System.Runtime.InteropServices;
+                public class SystemParams {
+                    [DllImport("user32.dll", SetLastError = true)]
+                    public static extern bool SystemParametersInfo(uint uiAction, uint uiParam, IntPtr pvParam, uint fWinIni);
+                }
+"@
+            # SPI_SETSCREENSAVEACTIVE = 0x0011, SPIF_SENDCHANGE = 0x02
+            [SystemParams]::SystemParametersInfo(0x0011, 1, [IntPtr]::Zero, 0x02) | Out-Null
+            Write-Host " System parameters updated successfully"
+        } catch {
+            Write-Host " Warning: Could not refresh system parameters - $($_.Exception.Message)"
         }
         
         return $true
