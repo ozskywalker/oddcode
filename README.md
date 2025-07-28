@@ -50,6 +50,8 @@ Use & modify as you wish.
 * **[DRMM-macOS-disable-ipv6.sh](RMM_Scripts/DRMM-macOS-disable-ipv6.sh)** - Disables IPv6 on all interfaces on a given macOS endpoint
 * **[Get-NextDNSEnforcementStatus.ps1](RMM_Scripts/Get-NextDNSEnforcementStatus.ps1)** - Script for RMM to monitor NextDNS and avoid common bypasses
 * **[Set-NextDNSEnforcement.ps1](RMM_Scripts/Set-NextDNSEnforcement.ps1)** - Script for RMM to enforce NextDNS and avoid common bypasses
+* **[Get-ScreensaverComplianceStatus.ps1](RMM_Scripts/Get-ScreensaverComplianceStatus.ps1)** - Script for RMM to monitor desired screensaver settings are in place (enabled, 10min timeout, return to login screen)
+* **[Set-ScreensaverCompliance.ps1](RMM_Scripts/Set-ScreensaverCompliance.ps1)** - Script for RMM to enforce screensaver
 * **[Get-NTPtoCloudFlareStatus.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[Set-NTPtoCloudFlare.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[Set-DisableSleeponACPower.ps1](RMM_Scripts/Set-DisableSleeponACPower.ps1)** - Script for RMM to disable sleep on AC power and lid close, and disable Hibernation entirely (helps Bitlocker stay active)
