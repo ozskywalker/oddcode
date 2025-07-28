@@ -58,7 +58,7 @@ function Test-ScreensaverCompliance {
         
         Write-Host " Current ScreenSaveActive: $currentActive"
         if ($currentActive -ne $ExpectedActive) {
-            $Issues += "Screensaver is not enabled (Expected: $ExpectedActive, Current: $currentActive)"
+            $script:Issues += "Screensaver is not enabled (Expected: $ExpectedActive, Current: $currentActive)"
         }
         
         # Check timeout setting
@@ -68,7 +68,7 @@ function Test-ScreensaverCompliance {
         Write-Host " Current ScreenSaveTimeOut: $currentTimeout seconds"
         if ($currentTimeout -ne $ExpectedTimeout) {
             $timeoutMinutes = if ($currentTimeout) { [math]::Round([int]$currentTimeout / 60, 1) } else { "Not Set" }
-            $Issues += "Screensaver timeout is not 10 minutes (Expected: 10 min, Current: $timeoutMinutes min)"
+            $script:Issues += "Screensaver timeout is not 10 minutes (Expected: 10 min, Current: $timeoutMinutes min)"
         }
         
         # Check if password is required
@@ -77,7 +77,7 @@ function Test-ScreensaverCompliance {
         
         Write-Host " Current ScreenSaverIsSecure: $currentSecure"
         if ($currentSecure -ne $ExpectedSecure) {
-            $Issues += "Screensaver password protection is not enabled (Expected: $ExpectedSecure, Current: $currentSecure)"
+            $script:Issues += "Screensaver password protection is not enabled (Expected: $ExpectedSecure, Current: $currentSecure)"
         }
         
         # Check if any screensaver is configured (not "None")
@@ -86,7 +86,7 @@ function Test-ScreensaverCompliance {
         
         Write-Host " Current SCRNSAVE.EXE: $currentScreensaver"
         if (-not $currentScreensaver -or $currentScreensaver -eq "") {
-            $Issues += "No screensaver is configured (set to 'None')"
+            $script:Issues += "No screensaver is configured (set to 'None')"
         }
         
         # Check for Group Policy overrides that might prevent user changes
