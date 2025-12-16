@@ -89,5 +89,5 @@ Function Create-AwsRoute53Record
   }
 }
 
-$PublicFQDN = $(Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/public-hostname -Method Get).Trim()
+$PublicFQDN = $(Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/public-hostname -Method Get -UseBasicParsing).Trim()
 Create-AwsRoute53Record -Zone lwalker.me -RecordType CNAME -Name "pm-awsshowcase-ma1.lwalker.me" -Value $PublicFQDN -TTL 15 -wait $True

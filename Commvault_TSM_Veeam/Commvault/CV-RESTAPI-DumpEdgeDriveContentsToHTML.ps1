@@ -13,13 +13,13 @@ $Body = @{
 }
 
 # Login to Commvault REST API
-$Result = Invoke-RestMethod -Method POST -Uri "$WebServer/Login" -Headers $headers -Body $($Body | ConvertTo-Json) -ContentType "application/json"
+$Result = Invoke-RestMethod -Method POST -Uri "$WebServer/Login" -Headers $headers -Body $($Body | ConvertTo-Json) -ContentType "application/json" -UseBasicParsing
 
 # Save QSDK token
 $headers["Authtoken"] = $Result.token
 
 # Call Workflow
-$Result = Invoke-RestMethod -Method POST -Uri "$WebServer/Drive/action/list?path=$path" -Headers $headers
+$Result = Invoke-RestMethod -Method POST -Uri "$WebServer/Drive/action/list?path=$path" -Headers $headers -UseBasicParsing
 
 # Here's what a sample response looks like under $Result.fileResources
 #

@@ -17,7 +17,7 @@ $Body = @{
 
 try {
     # Login to Commvault REST API
-    $Result = Invoke-RestMethod -Method POST -Uri "$CVRESTAPIEndpoint/Login" -Headers $headers -Body $($Body | ConvertTo-Json) -ContentType "application/json"
+    $Result = Invoke-RestMethod -Method POST -Uri "$CVRESTAPIEndpoint/Login" -Headers $headers -Body $($Body | ConvertTo-Json) -ContentType "application/json" -UseBasicParsing
 
     # Save QSDK token
     $headers["Authtoken"] = $Result.token
@@ -61,7 +61,7 @@ $EnableAllActivity_Body = @{
 
 # Call Workflow
 try {
-    $Result = Invoke-RestMethod -Method POST -Uri "$CVRESTAPIEndpoint/ExecuteQCommand" -Headers $headers -Body $DisableAllActivity_Body
+    $Result = Invoke-RestMethod -Method POST -Uri "$CVRESTAPIEndpoint/ExecuteQCommand" -Headers $headers -Body $DisableAllActivity_Body -UseBasicParsing
 
     # Sloppy reporting
     If ($Result.Response.errorCode == 0) {

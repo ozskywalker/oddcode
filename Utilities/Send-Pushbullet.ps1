@@ -21,4 +21,4 @@ $APIkey = "<your API key here>";
 
 $bodyblock = @{"type"="note"; "title"="uTorrent PULL"; "body"=$body};
 
-Invoke-RestMethod -Uri "https://api.pushbullet.com/v2/pushes" -Method POST -Headers @{"Authorization" = "Bearer " + $APIkey} -ContentType "application/json" -Body (ConvertTo-Json $bodyblock);
+Invoke-RestMethod -Uri "https://api.pushbullet.com/v2/pushes" -Method POST -Headers @{"Authorization" = "Bearer " + $APIkey} -ContentType "application/json" -Body (ConvertTo-Json $bodyblock) -UseBasicParsing;
