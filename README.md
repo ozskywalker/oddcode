@@ -36,6 +36,7 @@ Use & modify as you wish.
 * **[Read-IniFile.psm1](Windows_Systems_Administration/Read-IniFile.psm1)** - Function to read INI files in as a PowerShell Object
 * **[Remove-Notepad.ps1](Windows_Systems_Administration/Remove-Notepad.ps1)** - Remove Notepad++ across a fleet of machines
 * **[ReregisterApp.ps1](Windows_Systems_Administration/ReregisterApp.ps1)** - Re-registers applications on Windows (handy when Calculator starts freezing like crazy)
+* **[Reset-WindowsHello.ps1](Windows_Systems_Administration/Reset-WindowsHello.ps1)** - Resets Windows Hello and NGC (Next Generation Credentials) to fix authentication issues
 * **[Show-DiskUsage.ps1](Windows_Systems_Administration/Show-DiskUsage.ps1)** - du -h for Windows
 * **[Update-WSLDistros.ps1](Windows_Systems_Administration/Update-WSLDistros.ps1)** - Powershell script to update all WSL distros via RMM script
 * **[wmi_poll_servers.ps1](Windows_Systems_Administration/wmi_poll_servers.ps1)** - Poll servers via WMI and extract key information into CSV/Excel
