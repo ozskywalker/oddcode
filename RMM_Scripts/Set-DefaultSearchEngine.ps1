@@ -14,7 +14,12 @@
   value back immediately after setting it.
 
 .NOTES
-  - Run as Administrator.
+  - Must run elevated (as Administrator, or as SYSTEM via an RMM agent/component).
+    All registry writes target HKLM (machine-wide browser policy), never HKCU, so
+    there is no per-user vs. per-machine conflict - running as SYSTEM is fine and
+    is how most RMM platforms (including Level.io) execute scripts/components by
+    default. Running as a regular, non-elevated user will fail with a
+    SecurityException on every Set-ItemProperty call under HKLM.
   - Applicable to Windows 10 / Windows 11 / Windows Server.
   - Users must restart their browser(s) for the change to take effect.
   - Override the desired engine per-deployment by setting an RMM script variable named
@@ -29,7 +34,9 @@
     state if enforcement doesn't appear to take effect on Edge/Chrome.
   - Exit codes:
     0 = Desired engine successfully enforced (and verified) on all installed browsers
-    1 = Unsupported $DesiredEngine value, or one or more browsers failed to configure
+    1 = Unsupported $DesiredEngine value
+    2 = Script is not running elevated (Administrator/SYSTEM required for HKLM writes)
+    3 = One or more browsers failed to configure
 #>
 
 Set-StrictMode -Version Latest
@@ -62,6 +69,15 @@ $SearchEngineCatalog = @{
         FirefoxNeedsAdd = $true
         FirefoxIconURL  = 'https://www.ecosia.org/favicon.ico'
     }
+}
+
+function Test-IsElevated {
+    # HKLM writes (used for every browser policy in this script) require an elevated
+    # process - either an interactive Administrator session, or SYSTEM (the context
+    # most RMM agents/components run scripts under, including Level.io by default).
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $principal = New-Object Security.Principal.WindowsPrincipal($identity)
+    return ($identity.IsSystem -or $principal.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))
 }
 
 function Write-Banner {
@@ -219,6 +235,18 @@ function Set-FirefoxSearchEngine {
 
 Write-Banner
 
+if (-not (Test-IsElevated)) {
+    Write-Host "ERROR: This script must run elevated (as Administrator or as SYSTEM)."
+    Write-Host " - All registry writes target HKLM, which requires an elevated process."
+    Write-Host " - If running manually, re-launch PowerShell with 'Run as Administrator'."
+    Write-Host " - If running via an RMM agent (Level.io, Datto RMM, etc.), this is normally"
+    Write-Host "   satisfied automatically since scripts/components execute as SYSTEM."
+    Write-Host "========================================"
+    Write-Host "Script completed with exit code: 2"
+    Write-Host "========================================"
+    exit 2
+}
+
 if (-not $SearchEngineCatalog.ContainsKey($DesiredEngine)) {
     Write-Host "ERROR: Unsupported DesiredEngine value '$DesiredEngine'."
     Write-Host " - Supported values: $($SearchEngineCatalog.Keys -join ', ')"
@@ -245,7 +273,7 @@ if ($failed) {
     $failedNames = $failed | ForEach-Object { $_.Key }
     Write-Host "ERROR: Failed to enforce '$($engine.DisplayName)' on: $($failedNames -join ', ')"
     $results.GetEnumerator() | ForEach-Object { Write-Host " - $($_.Key): $($_.Value)" }
-    $ErrorCode = 1
+    $ErrorCode = 3
 } else {
     Write-Host "SUCCESS: Default search engine enforced to '$($engine.DisplayName)' on all installed browsers."
     $results.GetEnumerator() | ForEach-Object { Write-Host " - $($_.Key): $($_.Value)" }
