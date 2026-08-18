@@ -55,6 +55,8 @@ Use & modify as you wish.
 * **[Set-DefaultSearchEngine.ps1](RMM_Scripts/Set-DefaultSearchEngine.ps1)** - Script for RMM to enforce a chosen default search engine (DuckDuckGo, Ecosia, or Google) on Edge, Chrome, and Firefox
 * **[Get-ScreensaverComplianceStatus.ps1](RMM_Scripts/Get-ScreensaverComplianceStatus.ps1)** - Script for RMM to monitor desired screensaver settings are in place (enabled, 10min timeout, return to login screen)
 * **[Set-ScreensaverCompliance.ps1](RMM_Scripts/Set-ScreensaverCompliance.ps1)** - Script for RMM to enforce screensaver
+* **[Get-NvidiaGeForceDriverUpdateStatus.ps1](RMM_Scripts/Get-NvidiaGeForceDriverUpdateStatus.ps1)** - Script for RMM to monitor whether a newer NVIDIA GeForce display driver is available for the installed GPU
+* **[Set-NvidiaGeForceDriverUpdate.ps1](RMM_Scripts/Set-NvidiaGeForceDriverUpdate.ps1)** - Script for RMM to silently download and install a pending NVIDIA GeForce driver update
 * **[Get-NTPtoCloudFlareStatus.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[Set-NTPtoCloudFlare.ps1](Windows_Systems_Administration/Set-NTPtoCloudFlare.ps1)** - Forces Windows 10 & 11 to use CloudFlare's NTP servers
 * **[Set-DisableSleeponACPower.ps1](RMM_Scripts/Set-DisableSleeponACPower.ps1)** - Script for RMM to disable sleep on AC power and lid close, and disable Hibernation entirely (helps Bitlocker stay active)
