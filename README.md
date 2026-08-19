@@ -53,6 +53,8 @@ Use & modify as you wish.
 * **[Set-NextDNSEnforcement.ps1](RMM_Scripts/Set-NextDNSEnforcement.ps1)** - Script for RMM to enforce NextDNS and avoid common bypasses
 * **[Get-DefaultSearchEngineStatus.ps1](RMM_Scripts/Get-DefaultSearchEngineStatus.ps1)** - Script for RMM to monitor that Edge, Chrome, and Firefox enforce a chosen default search engine (also reports domain/Entra ID join state, since Edge/Chrome ignore this policy on unmanaged devices)
 * **[Set-DefaultSearchEngine.ps1](RMM_Scripts/Set-DefaultSearchEngine.ps1)** - Script for RMM to enforce a chosen default search engine (DuckDuckGo, Ecosia, or Google) on Edge, Chrome, and Firefox
+* **[Get-YouTubeShortsBlockStatus.ps1](RMM_Scripts/Get-YouTubeShortsBlockStatus.ps1)** - Script for RMM to monitor whether Edge/Chrome block YouTube Shorts via URLBlocklist policy (also flags Opera Stable/Opera GX as a compliance gap, since Opera has no enterprise policy engine to enforce it with)
+* **[Set-YouTubeShortsBlock.ps1](RMM_Scripts/Set-YouTubeShortsBlock.ps1)** - Script for RMM to enforce a YouTube Shorts URLBlocklist on Edge/Chrome
 * **[Get-ScreensaverComplianceStatus.ps1](RMM_Scripts/Get-ScreensaverComplianceStatus.ps1)** - Script for RMM to monitor desired screensaver settings are in place (enabled, 10min timeout, return to login screen)
 * **[Set-ScreensaverCompliance.ps1](RMM_Scripts/Set-ScreensaverCompliance.ps1)** - Script for RMM to enforce screensaver
 * **[Get-NvidiaGeForceDriverUpdateStatus.ps1](RMM_Scripts/Get-NvidiaGeForceDriverUpdateStatus.ps1)** - Script for RMM to monitor whether a newer NVIDIA GeForce display driver is available for the installed GPU
